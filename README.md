@@ -46,7 +46,7 @@ O arquivo `variables.json` define a estrutura do grupo que irá ser criado. Abai
 }
 
 
-# 🚀 Executando a Criação
+##🚀 Executando a Criação
 
 Para realizar a chamada à API e criar o grupo, utilize o comando curl abaixo, substituindo os campos entre < >:
 
@@ -61,7 +61,7 @@ curl -u :<PAT> \
   https://dev.azure.com/ellevo-next-test/Teste/_apis/distributedtask/variablegroups?api-version=7.1-preview.2 \
   -d @variaveis.json -v
 
-# Explicação do comando:
+##Explicação do comando:
 curl: Ferramenta utilizada para transferir dados e realizar requisições via protocolos de rede.
 -u :<PAT>: Realiza a autenticação. O : antes do token indica ao sistema que o campo de "usuário" está vazio, enviando o Personal Access Token como credencial de acesso.
 -X POST: Define o método HTTP como POST, indicando que a intenção da chamada é criar um novo recurso no servidor.
@@ -71,7 +71,7 @@ URL do Endpoint: Endereço completo que aponta para a organização, o projeto e
 -v (Verbose): Ativa o modo detalhado. Essencial para o troubleshooting, pois exibe todo o log da transação, facilitando a identificação de erros de autenticação ou sintaxe.
 
 
-# ⚠️ Lições Aprendidas (Troubleshooting)
+##⚠️ Lições Aprendidas (Troubleshooting)
 
 Durante a implementação, foram corrigidos os seguintes pontos críticos:
 
@@ -80,4 +80,4 @@ Durante a implementação, foram corrigidos os seguintes pontos críticos:
 - Escopo do Projeto: Grupos de variáveis são vinculados a um projectReference; se o GUID do projeto estiver incorreto, a API retornará erro 404 ou 400.
 
 
-# ✨ Documentação gerada para facilitar o provisionamento de Variable Groups no Azure DevOps via API, através do Cloud Shell terminal Bash.
+##✨ Documentação gerada para facilitar o provisionamento de Variable Groups no Azure DevOps via API, através do Cloud Shell terminal Bash.
