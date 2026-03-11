@@ -44,34 +44,35 @@ O arquivo `variables.json` define a estrutura do grupo que irá ser criado. Abai
     }
   ]
 }
+```
 
-
-##🚀 Executando a Criação
+## 🚀 Executando a Criação
 
 Para realizar a chamada à API e criar o grupo, utilize o comando curl abaixo, substituindo os campos entre < >:
 
-Bash
-# Certifique-se de que seu PAT esteja completo, com todos os caracteres dados após criação do mesmo.
-# Use "\" para o terminal Bash entendar a quebra de linhas
+Bash:  
+Certifique-se de que seu PAT esteja completo, com todos os caracteres dados após criação do mesmo.  
+Use " \ " para o terminal Bash entendar a quebra de linhas
 
-Comando:
-curl -u :<PAT> \
+Comando:  
+curl -u :< PAT > \
   -X POST \
   -H "Content-Type: application/json" \
   https://dev.azure.com/ellevo-next-test/Teste/_apis/distributedtask/variablegroups?api-version=7.1-preview.2 \
   -d @variaveis.json -v
+  
 
-##Explicação do comando:
-curl: Ferramenta utilizada para transferir dados e realizar requisições via protocolos de rede.
--u :<PAT>: Realiza a autenticação. O : antes do token indica ao sistema que o campo de "usuário" está vazio, enviando o Personal Access Token como credencial de acesso.
--X POST: Define o método HTTP como POST, indicando que a intenção da chamada é criar um novo recurso no servidor.
--H "Content-Type: application/json": Define o cabeçalho (header). Informa ao Azure que o corpo da requisição está formatado como JSON.
-URL do Endpoint: Endereço completo que aponta para a organização, o projeto e o serviço específico de variablegroups na versão 7.1.
--d @variaveis.json: O parâmetro -d envia os dados (payload). O prefixo @ instrui o curl a ler o conteúdo diretamente do arquivo local chamado variaveis.json.
--v (Verbose): Ativa o modo detalhado. Essencial para o troubleshooting, pois exibe todo o log da transação, facilitando a identificação de erros de autenticação ou sintaxe.
+**Explicação do comando:**  
+**curl** : Ferramenta utilizada para transferir dados e realizar requisições via protocolos de rede.  
+**-u :< PAT >** : Realiza a autenticação. O : antes do token indica ao sistema que o campo de "usuário" está vazio, enviando o Personal Access Token como credencial de acesso.  
+**-X POST** : Define o método HTTP como POST, indicando que a intenção da chamada é criar um novo recurso no servidor.  
+**-H "Content-Type: application/json"** : Define o cabeçalho (header). Informa ao Azure que o corpo da requisição está formatado como JSON.  
+**URL do Endpoint** : Endereço completo que aponta para a organização, o projeto e o serviço específico de variablegroups na versão 7.1.  
+**-d @variaveis.json** : O parâmetro -d envia os dados (payload). O prefixo @ instrui o curl a ler o conteúdo diretamente do arquivo local chamado variaveis.json.  
+**-v (Verbose)** : Ativa o modo detalhado. Essencial para o troubleshooting, pois exibe todo o log da transação, facilitando a identificação de erros de autenticação ou sintaxe.  
 
 
-##⚠️ Lições Aprendidas (Troubleshooting)
+## ⚠️ Lições Aprendidas (Troubleshooting)
 
 Durante a implementação, foram corrigidos os seguintes pontos críticos:
 
@@ -80,4 +81,4 @@ Durante a implementação, foram corrigidos os seguintes pontos críticos:
 - Escopo do Projeto: Grupos de variáveis são vinculados a um projectReference; se o GUID do projeto estiver incorreto, a API retornará erro 404 ou 400.
 
 
-##✨ Documentação gerada para facilitar o provisionamento de Variable Groups no Azure DevOps via API, através do Cloud Shell terminal Bash.
+## ✨ Documentação gerada para facilitar o provisionamento de Variable Groups no Azure DevOps via API, através do Cloud Shell terminal Bash.
